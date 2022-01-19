@@ -1,132 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 :root {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: "Poppins", serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  font-family: "Poppins", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1,
 p {
-   text-shadow: 0.1em 0.1em rgba(0, 0, 0, 0.25);
+  text-shadow: 0.1em 0.1em rgba(0, 0, 0, 0.25);
 }
 
 h1 {
-    text-transform: capitalize;
-    font-size: 1.4rem;
-    letter-spacing: 0.05rem;
-    margin: 0 0 0.5rem 0;
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  letter-spacing: 0.05rem;
+  margin: 0 0 0.5rem 0;
 }
 
 p {
-    font-size: 0.9rem;
-    margin: 0 0 0 0;
-    letter-spacing: 0.1rem;
+  font-size: 0.9rem;
+  margin: 0 0 0 0;
+  letter-spacing: 0.1rem;
 }
 
 header {
-    width: 100%;
+  width: 100%;
 }
 
 .container {
-    height: auto;
-    width: 350px;
-    transition: all 0.5s ease-in-out;
+  height: auto;
+  width: 350px;
+  transition: all 0.5s ease-in-out;
 }
 
 .opened {
-    height: 35rem;
+  height: 35rem;
 }
 
 .banner {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 30px;
-    z-index: 100;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 100;
 }
 
 .banner-img {
-    position: absolute; 
+  position: absolute;
 }
 
-.hero {
-    position: relative;
-    margin-top: 1;
-    width: 100%;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.day-card {
+  position: relative;
+  margin-top: 1;
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero-text {
-    margin-top: 4rem;
-    z-index: 100;
-    flex-direction: column;
-    display: flex;
-    align-items: left;
-    justify-content: center;
-    height: auto;
-    padding: 0 1rem;
-    color: white;
+.card-content {
+  width: 100%;
+  margin-top: 4rem;
+  z-index: 100;
+  flex-direction: column;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  height: auto;
+  padding: 0 1rem;
+  color: white;
 }
 
-.date::before {
-    content: "\f073";
-    font-family: "Font Awesome 5 Free" !important;
-    font-weight: 900;
-
+.card-date::before {
+  content: "\f073";
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900;
 }
 
-.line {
-    position: relative;
-    height: 0.1rem;
-    border-radius: 0.1rem;
-    background-color: rgba(255, 255, 255, 0.6);
+.card-line {
+  position: relative;
+  height: 0.1rem;
+  border-radius: 0.1rem;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
-picture {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    box-shadow: 0 0.1rem 0 rgba(0, 0, 0, 0.25);
+.card-image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0.1rem 0 rgba(0, 0, 0, 0.25);
 }
 
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: blur(1.5px);
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(1.5px);
 }
 
-.hero-overlay {
-    position: absolute;
-    box-shadow: inset 0 0 200px black;
-    bottom: 0;
-    top: 0;
-    width: 100%;
-   
+.card-img-overlay {
+  position: absolute;
+  box-shadow: inset 0 0 200px black;
+  bottom: 0;
+  top: 0;
+  width: 100%;
 }
 
 .btn {
-    margin: 1rem;
-    z-index: 10;
-    cursor: pointer;
+  margin: 1rem;
+  z-index: 10;
+  cursor: pointer;
 }
-
-
-
-
-
