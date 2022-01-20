@@ -11,23 +11,30 @@
           <img class="banner-img" src="./images/banner-img-1.svg" alt="" />
           <img class="banner-img" src="./images/banner-img-2.svg" alt="" />
         </div>
+      </header>
+      <div class="hero">
         <div class="card-day card-hero">
-          <picture class="card-image">
-            <a href="">
-              <img src="" alt="" />
+          <picture class="card-picture">
+            <a class="card-url" href="" target="_blank">
+              <img class="card-image" src="" alt="">
               <div class="card-image-overlay"></div>
             </a>
           </picture>
           <div class="card-content">
             <p class="card-date"></p>
-            <h1 class="card-title">Today is...</h1>
-            <div class="card-line"></div>
+            <h1 class="card-title"></h1>
+            <div class="line"></div>
           </div>
-          <ul class="cards"></ul>
-          <button id="toggle-btn" class="btn">button</button>
         </div>
-      </header>
+      </div>
+      <div class="expandable">
+        <div class="line"></div>
+        <h2>Today is also...</h2>
+        <ul class="cards">
+        </div>
+      </ul>
     </div>
+    <button id="toggle-btn" class="btn">button</button>
     <script src="scripts/date.js"></script>
     <script src="scripts/popup.js"></script>
     <script src="scripts/serverRequest.js"></script>

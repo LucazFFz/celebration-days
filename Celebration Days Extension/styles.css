@@ -1,38 +1,55 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
 
 :root {
+  font-size: 12px;
+}
+
+:root.cards.opened {
   font-size: 16px;
 }
 
-* {
+*, ::before, ::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: "Poppins", serif;
+  font-family: "Rubik", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: hsl(220, 70%, 97%);
 }
 
 h1,
+h2,
 p {
-  text-shadow: 0.1em 0.1em rgba(0, 0, 0, 0.25);
+  color: white;
+  text-shadow: 0.05em 0.05em #0e4d6d;
 }
 
-h1 {
+h1, h2 {
+  font-weight: 700;
   text-transform: capitalize;
-  font-size: 1.4rem;
-  letter-spacing: 0.05rem;
   margin: 0 0 0.5rem 0;
 }
 
+h1 {
+  font-size: 2rem;
+  letter-spacing: 0.05rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  letter-spacing: 0.08rem;
+}
+
 p {
-  font-size: 0.9rem;
+  font-weight: 400;
+  font-size: 0.7rem;
   margin: 0 0 0 0;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.12rem;
 }
 
 header {
@@ -40,87 +57,158 @@ header {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 234px;
   height: auto;
-  width: 350px;
+  width: 35rem;
   transition: all 0.5s ease-in-out;
 }
 
-.opened {
-  height: 35rem;
+.line {
+  height: 0.05em;
+  background-color: black;
+  width: 100%;
+  margin-bottom: 1em;
 }
 
-.banner {
-  position: absolute;
-  top: 0;
+.banner, 
+.banner-img {
   width: 100%;
-  height: 30px;
+  position: fixed;
   z-index: 100;
 }
 
-.banner-img {
-  position: absolute;
+.hero {
+  font-size: 2rem;
+  margin-top: 2rem;
 }
 
-.day-card {
+.hero p {
+  font-size: 1.3rem;
+}
+
+.hero .line {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn {
+  width: 3em;
+  height: 3em;
+  bottom: 0;
+  position: fixed;
+  margin-bottom: 1em;
+  z-index: 100;
+  border: none;
+  background: url("./images/chevron-icon.svg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  color: transparent;
+}
+
+.expandable {
+  height: 0;
+  overflow: hidden;
+  transition: height 2s ease-in-out;
+}
+.expandable.opened {
+  height: auto;
+}
+
+.expandable > h2 {
+  margin: 0.5 0 0.5em 0;
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(14, 77, 110)
+}
+
+.expandable .line {
+  margin-top: 2em;
+  width: 0.03;
+  background-color: rgba(0, 0, 0, 0.20);
+}
+
+
+
+.cards {
+  height: auto;
+  transform-origin: top;
   position: relative;
-  margin-top: 1;
   width: 100%;
-  flex-direction: column;
+  gap: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card-day {
+  width: 100%;
+  aspect-ratio: 2/1;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .card-content {
-  width: 100%;
-  margin-top: 4rem;
-  z-index: 100;
-  flex-direction: column;
+  pointer-events: none;
+  padding: 1em;
+  position: absolute;
   display: flex;
-  align-items: left;
-  justify-content: center;
-  height: auto;
-  padding: 0 1rem;
-  color: white;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+.card-date {
+  position: relative;
 }
 
 .card-date::before {
-  content: "\f073";
-  font-family: "Font Awesome 5 Free" !important;
-  font-weight: 900;
+  position: relative;
+  margin-right: 0.3em;
+  content:url("./images/calendar-icon.svg");
 }
 
-.card-line {
-  position: relative;
-  height: 0.1rem;
-  border-radius: 0.1rem;
-  background-color: rgba(255, 255, 255, 0.6);
+.card-picture {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 .card-image {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  box-shadow: 0 0.1rem 0 rgba(0, 0, 0, 0.25);
-}
-
-.card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(1.5px);
+  transition: all 0.8s ease-out;
 }
 
-.card-img-overlay {
+.card-picture:hover img {
+  transform: scale(1.1);
+}
+
+.card-image-overlay {
   position: absolute;
-  box-shadow: inset 0 0 200px black;
-  bottom: 0;
   top: 0;
-  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: inset 0 0 8em black;
+  z-index: 1;
 }
 
-.btn {
-  margin: 1rem;
-  z-index: 10;
-  cursor: pointer;
+::-webkit-scrollbar {
+  width: 1em;
 }
+
+::-webkit-scrollbar-track {
+  background-color: hsl(220, 30%, 85%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(0deg, rgb(231, 30, 100), rgb(159, 39, 173));
+  border-radius: 1em;
+}
+

@@ -14,18 +14,26 @@ app.get("/", (req, res) => {
   
     if(req.query.type === "hero") hero();
     else if(req.query.type === "all") all();
+    else {
+        res.status(400);
+        res.send({msg: "Type not found.", status: 400});
+    }
    
     async function hero() {
-        const resolve = await getHero(req.query.date);
+        const resolve = await getHero(req.query.date).catch((error) => {
+            res.status(400);
+            res.send({ msg: error, status: 400 });
+        })
         res.send(JSON.stringify(resolve));
     };
 
     async function all() {
-        const resolve = await getAll(req.query.date);
+        const resolve = await getAll(req.query.date).catch((error) => {
+            res.status(400);
+            res.send({ msg: error, status: 400 });
+        })
         res.send(JSON.stringify(resolve));
     }
-
-  
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}...`))
@@ -33,7 +41,7 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}...`))
 async function getAll(date) {
     const url = `https://www.daysoftheyear.com/days/${date}/`; 
     const response = await axios.get(url).catch(() => {
-        return Promise.reject("Celebration day not found.")
+        return Promise.reject("Date not found");
     })
 
     let info = []
@@ -45,7 +53,7 @@ async function getAll(date) {
         const img = $(this).find(".card__image").find("img").attr("src");
         const pageUrl = $(this).find(".card__image").find("a").attr("href");
         const date = $(this).find(".date_day").text();
-        info.push({ title, date, img, pageUrl });
+        info.push({ title, date, img, url: pageUrl });
     })
 
     
