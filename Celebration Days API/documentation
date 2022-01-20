@@ -1,0 +1,26 @@
+<--- Celebration Days --->
+
+A simple API that fetches the current celebration days.
+Web scrapes the data from https://www.daysoftheyear.com/.
+
+-- Url structure example - http://localhost:3000/?type=all&date=jan/01/2022
+
+-- fetch
+Represents which celebration days to get.
+
+- main - Fetches the primary celebration day for the specified date.
+- all - Fetches all celebration days for the specified date.
+
+-- date
+Fetches the celebration days from the date.
+
+- date format follows: month(three word abbreviation) / day(two digits) / year(four digits)
+  example: mar/07/2020
+
+-- Result structure
+Object - { title, date, img, url}
+
+- title - The name of the celebration day.
+- date - The date of the celebration day.
+- img - A image representing the celebration day.
+- url - A url link to the celebration days page on the https://www.daysoftheyear.com/ website.

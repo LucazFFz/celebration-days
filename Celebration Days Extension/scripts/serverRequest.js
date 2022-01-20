@@ -1,25 +1,29 @@
-const url = `http://localhost:3000/?type=all&date=${formatUrlDate(new Date())}`;
+const url = `http://localhost:3000/?fetch=all&date=${formatUrlDate(new Date())}`;
 
 getJSON(url, (status, res) => {
   if(status !== 200) {
     console.log(res)
   }
   else {
-    const heroCardElem = document.querySelector(".card-hero");
+    const mainCardElem = document.querySelector(".card-hero");
     const cardsElem = document.querySelector(".cards");
     let cards = res;
-    let hero = cards.splice(0, 1)[0];
-    heroCardElem.querySelector(".card-title").innerHTML = hero.title;
-    heroCardElem.querySelector(".card-date").innerHTML = hero.date;
-    heroCardElem.querySelector(".card-image").src = hero.img;
-    heroCardElem.querySelector(".card-url").href = hero.url;
+    let main = cards.splice(0, 1)[0];
 
+    // RENDER MAIN CARD
+    mainCardElem.querySelector(".card-image").src = main.img;
+    mainCardElem.querySelector(".card-title").innerHTML = main.title;
+    mainCardElem.querySelector(".card-date").innerHTML = main.date;
+    mainCardElem.querySelector(".card-url").href = main.url;
+
+    // RENDER ALL OTHER CARDS
     cards.forEach(card => {
-      cardsElem.append(buildCardHTML(card.title, "", card.img, card.url));
+      cardsElem.append(buildCardHTML(card.title, card.img, card.url));
     });
   }
 });
 
+// MAKE HTTP REQUEST AND RETURN IN JSON FORMAT
 function getJSON(url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);

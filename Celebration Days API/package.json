@@ -1,7 +1,7 @@
 {
-  "name": "celebartion-days-api",
+  "name": "celebration-days-api",
   "version": "0.1.0",
-  "description": "",
+  "description": "A simple API that fetches the current celebration days.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
