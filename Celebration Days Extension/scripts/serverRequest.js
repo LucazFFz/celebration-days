@@ -1,4 +1,4 @@
-const url = `http://localhost:3000/?fetch=all&date=${formatUrlDate(new Date())}`;
+const url = `https://celebration-api.herokuapp.com/?fetch=all&date=${formatUrlDate(new Date())}`;
 
 getJSON(url, (status, res) => {
   if(status !== 200) {
